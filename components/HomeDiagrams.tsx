@@ -3,7 +3,7 @@ import React from 'react';
 import { Row } from 'react-bootstrap';
 import { View, StyleSheet } from 'react-native';
 
-export const StartPage = () => {
+export const HomeDiagrams = () => {
     return (
         <>
             <Row>
@@ -16,7 +16,7 @@ export const StartPage = () => {
     )
 }
 
-export default StartPage;
+export default HomeDiagrams;
 
 const data = [
     { name: 'Steps', value: 400, color: '#BE63BF' },
