@@ -1,1 +1,1 @@
-export { theme } from './Style';
+export { theme } from './style';

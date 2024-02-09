@@ -9,6 +9,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@mantine/charts": "^7.5.1",
     "@mantine/core": "^7.5.1",
     "@mantine/hooks": "^7.5.1",
     "@tabler/icons": "^2.47.0",
