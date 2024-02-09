@@ -9,3 +9,5 @@ export const Settings = () => {
         </View>
     );
 };
+
+export default Settings;

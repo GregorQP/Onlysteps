@@ -5,7 +5,7 @@ import { Row } from 'react-bootstrap';
 export const HomeDiagrams = () => {
     return (
         <>
-            <DonutChart size={220} thickness={15} data={data} />;
+            
         </>
     )
 }

@@ -9,3 +9,5 @@ export const Overview = () => {
         </View>
     );
 };
+
+export default Overview;
