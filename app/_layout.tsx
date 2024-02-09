@@ -1,6 +1,6 @@
-import { Tabs } from 'expo-router'
-import React from 'react'
 import { IconCalendar, IconHome, IconUser } from '@tabler/icons';
+import { Tabs } from 'expo-router';
+import React from 'react';
 import { Text } from 'react-native';
 
 export const AppLayout = () => {
