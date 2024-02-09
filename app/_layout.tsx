@@ -5,19 +5,19 @@ import { IconCalendar, IconHome, IconUser } from '@tabler/icons';
 export const AppLayout = () => {
     return (
         <Tabs>
-            <Tabs.Screen name='/Home' options={{
+            <Tabs.Screen name='index' options={{
                 title: "Home",
                 tabBarIcon: () => (
                     <IconHome/>
                 ),
             }}/>
-            <Tabs.Screen name='/Overview' options={{
+            <Tabs.Screen name='Overview' options={{
                 title: "Overview",
                 tabBarIcon: () => (
                     <IconCalendar/>
                 ),
             }}/>
-            <Tabs.Screen name='/Settings' options={{
+            <Tabs.Screen name='Settings' options={{
                 title: "Settings",
                 tabBarIcon: () => (
                     <IconUser/>
@@ -26,3 +26,4 @@ export const AppLayout = () => {
         </Tabs>
     );
 };
+export default AppLayout;

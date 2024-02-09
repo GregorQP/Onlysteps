@@ -4,7 +4,7 @@ import React from 'react';
 
 const { width } = Dimensions.get('window')
 const sizeH1= 32;
-const theme = createTheme({
+export const theme = createTheme({
   colors:{
     'backgroundColor': ['#080726', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'],
     'primaryPink': ['#BE63BF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'],

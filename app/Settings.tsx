@@ -1,7 +1,11 @@
 import React from 'react'
+import { HomeDiagrams } from '../components/HomeDiagrams';
+import { View, Text } from 'react-native';
 
 export const Settings = () => {
-  return (
-    <div>Settings</div>
-  )
-}
+    return (
+        <View>
+            <Text>Settings</Text>
+        </View>
+    );
+};
