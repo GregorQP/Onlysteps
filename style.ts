@@ -1,4 +1,4 @@
-import { createTheme, MantineProvider, px, rem } from '@mantine/core';
+/*import { createTheme, MantineProvider, px, rem } from '@mantine/core';
 import { Dimensions } from 'react-native';
 import React from 'react';
 
@@ -24,3 +24,4 @@ const theme = createTheme({
         },
     },
 });
+*/
