@@ -9,7 +9,7 @@ export const AppLayout = () => {
             <Tabs.Screen name='index' options={{
                 title: "Home",
                 tabBarIcon: () => (
-                    <IconHome/>
+                    <Text><IconHome/></Text>
                 ),
             }}/>
             <Tabs.Screen name='Overview' options={{

@@ -1,12 +1,11 @@
-import { DonutChart } from '@mantine/charts';
 import React from 'react';
-import { Row } from 'react-bootstrap';
 
 export const HomeDiagrams = () => {
     return (
-        <>
-            
-        </>
+        <></>
+        // <MantineProvider theme={theme}>
+        //     <DonutChart size={220} thickness={15} data={data} />;
+        // </MantineProvider>
     )
 }
 
