@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { View, StyleSheet, Text } from 'react-native';
 import Pie from 'react-native-pie'
+const style = require('./style.ts');
 const left = 40;
 const done = 60;
 export const HomeDiagrams = () => {
@@ -23,7 +24,7 @@ export const HomeDiagrams = () => {
                     ]}
                     backgroundColor="#ddd"
                 </Pie>
-                <Text style= {styles.gaugeText}>
+                <Text style= {style.h2}>
                     60%
                 </Text>
             </Row>
@@ -43,15 +44,6 @@ export const HomeDiagrams = () => {
 export default HomeDiagrams;
 
 const styles = StyleSheet.create({
-    text: {
-        fontSize: 72,
-        fontWeight: "bold",
-    },
-    gaugeText: {
-        backgroundColor: 'transparent',
-        color: '#000',
-        fontSize: 24,
-    },
     circle: {
         borderRadius: 50,
         width: 34,
@@ -61,7 +53,6 @@ const styles = StyleSheet.create({
         borderWidth: 5,
         color: "#000",
         textAlign: "center",
-        //font: 32px Arial, sans-serif,
-    }
+    },
 })
 
