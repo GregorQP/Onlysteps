@@ -50,7 +50,9 @@ export default StyleSheet.create({
         fontSize: width/31,
     },
     backgroundColor:{
-        backgroundColor: "#080726"
+        backgroundColor: "#080726",
+        width: 100,
+        height: 100
     },
     primaryPink:{
         color: "#BE63BF"

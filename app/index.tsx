@@ -1,6 +1,7 @@
 import { Pedometer } from 'expo-sensors';
 import React, { useEffect, useState } from 'react';
 import { HomeDiagrams } from '../components/HomeDiagrams';
+import ProfilePage from "../components/ProfilePage";
 import { Text, View } from 'react-native';
 import GlobalStyles from '../components/GlobalStyles'
 
@@ -36,11 +37,13 @@ export const Home = () => {
     }, []);
 
     return (
-
-        <View style={GlobalStyles.backgroundColor}>
+            <View>
+                <ProfilePage/>
+            </View>
+        /*<View style={GlobalStyles.backgroundColor}>
             <Text style={GlobalStyles.textColor}>Pedometer.isAvailableAsync(): {isPedometerAvailable}</Text>
             <Text style={GlobalStyles.textColor}>Walk! And watch this go up: {currentStepCount}</Text>
-        </View>
+        </View>*/
        
     );
 };
