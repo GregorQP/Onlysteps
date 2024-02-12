@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Image } from 'react-bootstrap';
-import { Alert, Dimensions, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, Dimensions, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { globalStyle } from '../GlobalStyles';
 import { MaterialIcons } from '@expo/vector-icons';
 
@@ -10,28 +10,49 @@ export const ProfilePage = () => {
         Alert.alert('Placeholder', 'This is a Placeholder');
     };
 
+    const [size, onChangeSize] = React.useState('cm');
+    const [name, onChangeName] = React.useState('name');
+    const [weight, onChangeWeight] = React.useState('weight');
+    const [age, onChangeAge] = React.useState('age');
     return (
         <View style={styles.container}>
             <View style={styles.profileImgContainer}>
                 {/* <Image src='./assets/cat.jpg' style={styles.profileImg}/> */}
                 <Text style={globalStyle.h4}></Text>
             </View>
-            <View style={styles.container}>
+            <View >
                 <View style={styles.listContainer}>
                     <Text style={globalStyle.h2}>Name:</Text>
-                    <Text style={globalStyle.h2}>Yvo</Text>
+                    <TextInput
+                        style={globalStyle.h2}
+                        onChangeText={onChangeName}
+                        value={name}
+                    />
                 </View>
                 <View style={styles.listContainer}>
                     <Text style={globalStyle.h2}>Grösse:</Text>
-                    <Text style={globalStyle.h2}>170</Text>
+                    <TextInput
+                        style={globalStyle.h2}
+                        onChangeText={onChangeSize}
+                        value={size}
+                    />
+                    
                 </View>
                 <View style={styles.listContainer}>
                     <Text style={globalStyle.h2}>Gewicht:</Text>
-                    <Text style={globalStyle.h2}>70 kg</Text>
+                    <TextInput
+                        style={globalStyle.h2}
+                        onChangeText={onChangeWeight}
+                        value={weight}
+                    />
                 </View>
                 <View style={styles.listContainer}>
                     <Text style={globalStyle.h2}>Alter:</Text>
-                    <Text style={globalStyle.h2}>24</Text>
+                    <TextInput
+                        style={globalStyle.h2}
+                        onChangeText={onChangeAge}
+                        value={age}
+                    />
                 </View>
             </View>
             <View style={styles.btnContainer}>
@@ -39,7 +60,7 @@ export const ProfilePage = () => {
                     <MaterialIcons
                         name="sports-score"
                         size={32}
-                        color= {globalStyle.primaryPink.color}
+                        color={globalStyle.primaryPink.color}
                     />
                     <Text style={globalStyle.h2}>Meine Ziele</Text>
                 </TouchableOpacity>
@@ -61,10 +82,10 @@ export const ProfilePage = () => {
                 </TouchableOpacity>
             </View>
             <View style={styles.listContainer}>
-                <TouchableOpacity onPress={onPressButton}> 
+                <TouchableOpacity onPress={onPressButton}>
                     <Text style={globalStyle.h4}>Abmelden</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={onPressButton}> 
+                <TouchableOpacity onPress={onPressButton}>
                     <Text style={globalStyle.h4}>Konto Löschen</Text>
                 </TouchableOpacity>
             </View>
@@ -81,32 +102,37 @@ const styles = StyleSheet.create({
         //height: Dimensions.get("window").height -100,
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: globalStyle.background.backgroundColor
+        justifyContent: 'space-evenly',
+        backgroundColor: globalStyle.background.backgroundColor,
+        height: "100%"
+    },
+    innerContainer: {
+
     },
     profileImgContainer: {
         marginLeft: 8,
         height: 80,
         width: 80,
         borderRadius: 40,
-      },
-      profileImg: {
+    },
+    profileImg: {
         height: 80,
         width: 80,
         borderRadius: 40,
-      },
-      listContainer:{
+    },
+    listContainer: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingLeft: 50,
         paddingRight: 50
-      },
-      btnContainer:{
+    },
+    btnContainer: {
         display: 'flex',
         flexDirection: 'column',
         padding: 30
-      },
-      button:{
+    },
+    button: {
         backgroundColor: globalStyle.secondaryPurple.color,
         fontFamily: globalStyle.h2.fontFamily,
         fontSize: globalStyle.h2.fontSize,
@@ -116,5 +142,5 @@ const styles = StyleSheet.create({
         margin: 8,
         borderColor: globalStyle.textColor.color,
         flexDirection: 'row',
-      }
+    }
 })
