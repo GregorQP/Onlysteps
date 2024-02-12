@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import React, { useEffect, useState } from 'react';
 import { Dimensions, StyleSheet, View, Text } from 'react-native';
 import { BarChart, ProgressChart } from 'react-native-chart-kit';
 import { globalStyle } from '../GlobalStyles';
@@ -39,28 +38,55 @@ export const HomeDiagrams = () => {
     const { width } = Dimensions.get('window');
     return (
         <View style={styles.container}>
-            <View style={styles.gauge}>
+            <ProgressChart
+                data={[currentStepCount / 10000]}
+                width={width}
+                height={220}
+                strokeWidth={16}
+                radius={64}
+                chartConfig={chartConfig}
+                hideLegend={true}
+            />
+            <Text style={globalStyle.h1}>Weiter So!</Text>
+            <Text style={globalStyle.h4}>Noch 2 Tage bis zum Wochenstreak</Text>
+            <View style={styles.innerChartContainer}>
                 <ProgressChart
-                    data={[currentStepCount / 10000]}
-                    width={width}
+                    data={[0]}
+                    width={width / 3}
                     height={220}
-                    strokeWidth={16}
-                    radius={64}
+                    strokeWidth={8}
+                    radius={16}
                     chartConfig={chartConfig}
                     hideLegend={true}
                 />
-                <Text style={globalStyle.h1}>Weiter So!</Text>
-                <Text style={globalStyle.h4}>Noch 2 Tage bis zum Wochenstreak</Text>
-                <BarChart
-                    data={{labels: ["MO", "DI", "MI", "DO", "FR", "SA", "SO"], datasets: [{data: pastStepCount}]}}
-                    width={width}
-                    height={100}
-                    yAxisLabel=""
-                    yAxisSuffix=""
-                    withInnerLines={false}
+                <ProgressChart
+                    data={[0]}
+                    width={width / 3}
+                    height={220}
+                    strokeWidth={8}
+                    radius={16}
                     chartConfig={chartConfig}
+                    hideLegend={true}
+                />
+                <ProgressChart
+                    data={[0]}
+                    width={width / 3}
+                    height={220}
+                    strokeWidth={8}
+                    radius={16}
+                    chartConfig={chartConfig}
+                    hideLegend={true}
                 />
             </View>
+            <BarChart
+                data={{labels: ["MO", "DI", "MI", "DO", "FR", "SA", "SO"], datasets: [{data: pastStepCount}]}}
+                width={width}
+                height={100}
+                yAxisLabel=""
+                yAxisSuffix=""
+                withInnerLines={false}
+                chartConfig={chartConfig}
+            />
         </View>
     );
 };
@@ -74,10 +100,10 @@ const styles = StyleSheet.create({
         backgroundColor: globalStyle.background.backgroundColor,
         height: "100%"
     },
-    gauge: {
-        position: 'absolute',
+    innerChartContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
         alignItems: 'center',
-        justifyContent: 'center',
     }
 });
  
