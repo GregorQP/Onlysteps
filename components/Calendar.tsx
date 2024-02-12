@@ -1,11 +1,12 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import CalendarCell from "./CalendarCell";
+import { globalStyle } from "../GlobalStyles";
 
 export const Calendar = () => {    
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Januar</Text>
+            <Text style={styles.month}>Januar</Text>
             <View style={styles.calendarContainer}>
                 <View style={styles.weekdayHeader}>
                     <Text style={styles.weekdayHeaderText}>Sun</Text>
@@ -33,16 +34,31 @@ const styles = StyleSheet.create({
         // flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: globalStyle.background.backgroundColor,
+        height: "100%"
     },
     title: {
         fontSize: 24,
         fontWeight: "bold",
         marginBottom: 16,
+        color: globalStyle.primaryPink.color,
+    },
+    month: {
+        fontSize: 24,
+        fontWeight: "bold",
+        //marginBottom: 8,
+        color: globalStyle.textColor.color,
+        backgroundColor: globalStyle.primaryPink.color,
+        width: "100%",
+        textAlign: 'center',
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10
     },
     calendarContainer: {
         borderWidth: 1,
-        borderColor: "#ccc",
-        borderRadius: 8,
+        borderColor: globalStyle.textColor.color,
+        borderBottomLeftRadius: 10,
+        borderBottomRightRadius: 10,
         padding: 8,
         marginBottom: 16,
     },
@@ -51,18 +67,22 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         marginBottom: 8,
         padding: 8,
-        paddingRight: 24
+        paddingRight: 24,
+        color: globalStyle.textColor.color,
     },
     weekdayHeaderText: {
         fontWeight: "bold",
         fontSize: 18,
+        color: globalStyle.textColor.color,
     },
     calendarGrid: {
         flexDirection: "row",
         flexWrap: "wrap",
+        color: globalStyle.textColor.color,
     },
     subText: {
-        fontSize: 12
+        fontSize: 12,
+        color: globalStyle.textColor.color,
     }
 });
 
