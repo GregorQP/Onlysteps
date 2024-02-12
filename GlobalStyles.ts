@@ -20,7 +20,7 @@ export const globalStyle =  StyleSheet.create({
         fontFamily: "Roboto",
         fontSize: width/31,
     },
-    backgroundColor:{
+    background:{
         backgroundColor: "#080726",
         width: 100,
         height: 100

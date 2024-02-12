@@ -71,26 +71,6 @@ export const ProfilePage = () => {
 
 
         </View>
-
-
-        /*<View style={styles.container}>
-          <View style={styles.profileContainer}>
-            <Image
-            <Text style={styles.name}>John Doe</Text>
-            <Text style={styles.age}>Age: 30</Text>
-          </View>
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>Button 1</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>Button 2</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>Button 3</Text>
-            </TouchableOpacity>
-          </View>
-        </View>*/
     );
 };
 

@@ -1,9 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Pie from 'react-native-pie';
+import { globalStyle } from '../GlobalStyles';
 
-const left = 40;
-const done = 60;
 export const HomeDiagrams = () => {
     return (
         <View>
@@ -18,6 +17,7 @@ export const HomeDiagrams = () => {
                             60%
                         </Text>
                     </View>
+                </View>
                 </View>
             </View>
 
@@ -41,5 +41,11 @@ const styles = StyleSheet.create({
         color: '#000',
         fontSize: 24,
     },
+    circleContainer:{
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        
+      },
 })
 
