@@ -1,17 +1,11 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { MaterialIcons } from "@expo/vector-icons";
+import { StyleSheet, Text, View } from "react-native";
+import CalendarCell from "./CalendarCell";
 
-export const Calendar = () => {
-    const calendarData = [
-        { day: 1, hasEvent: true },
-        { day: 2, hasEvent: false },
-        { day: 3, hasEvent: true },
-    ];
-
+export const Calendar = () => {    
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Calendar</Text>
+            <Text style={styles.title}>Januar</Text>
             <View style={styles.calendarContainer}>
                 <View style={styles.weekdayHeader}>
                     <Text style={styles.weekdayHeaderText}>Sun</Text>
@@ -22,19 +16,12 @@ export const Calendar = () => {
                     <Text style={styles.weekdayHeaderText}>Fri</Text>
                     <Text style={styles.weekdayHeaderText}>Sat</Text>
                 </View>
-                {calendarData.map((item, index) => (
-                    <View style={styles.calendarCell} key={index}>
-                        <Text style={styles.calendarCellText}>{item.day}</Text>
-                        {item.hasEvent && (
-                            <MaterialIcons
-                                name="event"
-                                size={24}
-                                color="blue"
-                            />
-                        )}
-                    </View>
-                ))}
+                <View style={styles.calendarGrid}>
+                    {calendarData.map((x, i) => (<CalendarCell item={x} key={i}/>))}
+                </View>
             </View>
+            <Text style={styles.title}>Da geht noch was!</Text>
+            <Text style={styles.subText}>Du hast an 21/31 Tagen dein Ziel erreicht. Diesen Monat schaffst du mehr!</Text>
         </View>
     );
 };
@@ -43,7 +30,7 @@ export default Calendar;
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        // flex: 1,
         justifyContent: "center",
         alignItems: "center",
     },
@@ -56,33 +43,59 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: "#ccc",
         borderRadius: 8,
-        padding: 16,
+        padding: 8,
+        marginBottom: 16,
     },
     weekdayHeader: {
         flexDirection: "row",
         justifyContent: "space-between",
         marginBottom: 8,
+        padding: 8,
+        paddingRight: 24
     },
     weekdayHeaderText: {
         fontWeight: "bold",
-        fontSize: 16,
+        fontSize: 18,
     },
     calendarGrid: {
         flexDirection: "row",
         flexWrap: "wrap",
-        justifyContent: "center",
     },
-    calendarCell: {
-        width: "14%",
-        aspectRatio: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        borderWidth: 1,
-        borderColor: "#ccc",
-        borderRadius: 8,
-        margin: "1%",
-    },
-    calendarCellText: {
-        fontSize: 16,
-    },
+    subText: {
+        fontSize: 12
+    }
 });
+
+const calendarData = [
+    { day: 1, hasEvent: true },
+    { day: 2, hasEvent: false },
+    { day: 3, hasEvent: true },
+    { day: 4, hasEvent: false },
+    { day: 5, hasEvent: true },
+    { day: 6, hasEvent: false },
+    { day: 7, hasEvent: true },
+    { day: 8, hasEvent: false },
+    { day: 9, hasEvent: true },
+    { day: 10, hasEvent: false },
+    { day: 11, hasEvent: true },
+    { day: 12, hasEvent: false },
+    { day: 13, hasEvent: false },
+    { day: 14, hasEvent: false },
+    { day: 15, hasEvent: true },
+    { day: 16, hasEvent: false },
+    { day: 17, hasEvent: true },
+    { day: 18, hasEvent: false },
+    { day: 19, hasEvent: true },
+    { day: 20, hasEvent: false },
+    { day: 21, hasEvent: true },
+    { day: 22, hasEvent: false },
+    { day: 23, hasEvent: true },
+    { day: 24, hasEvent: false },
+    { day: 25, hasEvent: true },
+    { day: 26, hasEvent: false },
+    { day: 27, hasEvent: true },
+    { day: 28, hasEvent: true },
+    { day: 29, hasEvent: true },
+    { day: 30, hasEvent: true },
+    { day: 31, hasEvent: true },
+];
