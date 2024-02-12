@@ -18,10 +18,10 @@ export const ProfilePage = () => {
     };
 
 
-    const [size, onChangeSize] = React.useState('cm');
-    const [name, onChangeName] = React.useState('name');
-    const [weight, onChangeWeight] = React.useState('weight');
-    const [age, onChangeAge] = React.useState('age');
+    const [size, onChangeSize] = React.useState('180');
+    const [name, onChangeName] = React.useState('Yvo');
+    const [weight, onChangeWeight] = React.useState('70');
+    const [age, onChangeAge] = React.useState('24');
     return (
         <View style={styles.container}>
             <View style={styles.profileImgContainer}>
