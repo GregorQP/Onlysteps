@@ -1,7 +1,8 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
 import { MaterialIcons } from '@expo/vector-icons';
-
+import { globalStyle } from '../GlobalStyles';
+import { Text, View } from 'react-native';
 
 export const AppLayout = () => {
     return (
@@ -12,9 +13,13 @@ export const AppLayout = () => {
                     <MaterialIcons
                         name="home"
                         size={24}
-                        color="black"
+                        color={globalStyle.secondaryPurple.color}
                     />
                 ),
+                tabBarBackground: () => (
+                    <View style={{backgroundColor: globalStyle.background.backgroundColor, height: "100%"}}></View>
+                ),
+                // tabBarActiveTintColor: globalStyle.primaryPink.color
             }}/>
             <Tabs.Screen name='Overview' options={{
                 title: "Overview",
@@ -22,9 +27,13 @@ export const AppLayout = () => {
                     <MaterialIcons
                         name="event"
                         size={24}
-                        color="black"
+                        color={globalStyle.secondaryPurple.color}
                     />
                 ),
+                tabBarBackground: () => (
+                    <View style={{backgroundColor: globalStyle.background.backgroundColor, height: "100%"}}></View>
+                ),
+                tabBarActiveTintColor: globalStyle.primaryPink.color
             }}/>
             <Tabs.Screen name='Settings' options={{
                 title: "Settings",
@@ -32,9 +41,13 @@ export const AppLayout = () => {
                     <MaterialIcons
                         name="account-circle"
                         size={24}
-                        color="black"
+                        color={globalStyle.secondaryPurple.color}
                     />
                 ),
+                tabBarBackground: () => (
+                    <View style={{backgroundColor: globalStyle.background.backgroundColor, height: "100%"}}></View>
+                ),
+                tabBarActiveTintColor: globalStyle.primaryPink.color
             }}/>
         </Tabs>
     );

@@ -1,23 +1,33 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Pie from 'react-native-pie';
+import { Dimensions, StyleSheet, View, Text } from 'react-native';
+import { BarChart, ProgressChart } from 'react-native-chart-kit';
 import { globalStyle } from '../GlobalStyles';
 
 export const HomeDiagrams = () => {
+    const { width } = Dimensions.get('window')
     return (
-        <View>
-            <View>
-                <View style={{ width: 175, alignItems: 'center' }}>
-                    <View
-                        style={styles.gauge}
-                    >
-                        <Text
-                            style={styles.gaugeText}
-                        >
-                            60%
-                        </Text>
-                    </View>
-                </View>
+        <View style={styles.container}>
+            <View style={styles.gauge}>
+                <ProgressChart
+                    data={donutData}
+                    width={width}
+                    height={220}
+                    strokeWidth={16}
+                    radius={64}
+                    chartConfig={chartConfig}
+                    hideLegend={true}
+                />
+                <Text style={globalStyle.h1}>Weiter So!</Text>
+                <Text style={globalStyle.h4}>Noch 2 Tage bis zum Wochenstreak</Text>
+                <BarChart
+                    data={barData}
+                    width={width}
+                    height={100}
+                    yAxisLabel=""
+                    yAxisSuffix=""
+                    withInnerLines={false}
+                    chartConfig={chartConfig}
+                />
             </View>
         </View>
     );
@@ -26,24 +36,39 @@ export const HomeDiagrams = () => {
 export default HomeDiagrams;
 
 const styles = StyleSheet.create({
-    container: { alignItems: 'center', justifyContent: 'center', height: 1050 },
+    container: { 
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        backgroundColor: globalStyle.background.backgroundColor,
+        height: "100%"
+    },
     gauge: {
         position: 'absolute',
-        width: 100,
-        height: 160,
         alignItems: 'center',
         justifyContent: 'center',
-    },
-    gaugeText: {
-        backgroundColor: 'transparent',
-        color: '#000',
-        fontSize: 24,
-    },
-    circleContainer:{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        
-      },
-})
+    }
+});
+
+const barData = {
+    labels: ["MO", "DI", "MI", "DO", "FR", "SA", "SO"],
+    datasets: [
+      {
+        data: [10000, 4500, 2800, 8000, 9900, 0, 0]
+      }
+    ]
+};
+
+const donutData = {data: [0.75]};
+
+const chartConfig = {
+    backgroundGradientFrom: "#1E2923",
+    backgroundGradientFromOpacity: 0,
+    backgroundGradientTo: "#08130D",
+    backgroundGradientToOpacity: 0,
+    color: (opacity = 1) => globalStyle.primaryPink.color,
+    labelColor: () => globalStyle.textColor.color,
+    strokeWidth: 2, // optional, default 3
+    barPercentage: 0.5,
+    useShadowColorFromDataset: false // optional
+  };
 

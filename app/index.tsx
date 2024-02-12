@@ -2,6 +2,7 @@ import { Pedometer } from 'expo-sensors';
 import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import ProfilePage from "../components/ProfilePage";
+import HomeDiagrams from '../components/HomeDiagrams';
 
 export const Home = () => {
     const [isPedometerAvailable, setIsPedometerAvailable] = useState('checking');
@@ -36,7 +37,7 @@ export const Home = () => {
 
     return (
         <View>
-            <ProfilePage/>
+            <HomeDiagrams/>
         </View>
         /*<View style={GlobalStyles.backgroundColor}>
             <Text style={GlobalStyles.textColor}>Pedometer.isAvailableAsync(): {isPedometerAvailable}</Text>
