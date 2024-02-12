@@ -1,20 +1,14 @@
-import React, { useState } from 'react';
-import { Image } from 'react-bootstrap';
-import { Alert, Dimensions, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { globalStyle } from '../GlobalStyles';
 import { MaterialIcons } from '@expo/vector-icons';
-import { ImageOrVideo } from "react-native-image-crop-picker";
+import React from 'react';
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { globalStyle } from '../GlobalStyles';
+
 
 
 export const ProfilePage = () => {
 
     const onPressButton = () => {
         Alert.alert('Placeholder', 'This is a Placeholder');
-    };
-
-    const onAvatarChange = (image: ImageOrVideo) => {
-        console.log(image);
-        // upload image to server here
     };
 
 
