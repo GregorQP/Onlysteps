@@ -3,12 +3,20 @@ import { Image } from 'react-bootstrap';
 import { Alert, Dimensions, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { globalStyle } from '../GlobalStyles';
 import { MaterialIcons } from '@expo/vector-icons';
+import { ImageOrVideo } from "react-native-image-crop-picker";
+
 
 export const ProfilePage = () => {
 
     const onPressButton = () => {
         Alert.alert('Placeholder', 'This is a Placeholder');
     };
+
+    const onAvatarChange = (image: ImageOrVideo) => {
+        console.log(image);
+        // upload image to server here
+    };
+
 
     const [size, onChangeSize] = React.useState('cm');
     const [name, onChangeName] = React.useState('name');
@@ -17,7 +25,11 @@ export const ProfilePage = () => {
     return (
         <View style={styles.container}>
             <View style={styles.profileImgContainer}>
-                {/* <Image src='./assets/cat.jpg' style={styles.profileImg}/> */}
+            <MaterialIcons
+                        name="account-circle"
+                        size={160}
+                        color={globalStyle.secondaryPurple.color}
+                    />
                 <Text style={globalStyle.h4}></Text>
             </View>
             <View >
@@ -36,7 +48,7 @@ export const ProfilePage = () => {
                         onChangeText={onChangeSize}
                         value={size}
                     />
-                    
+
                 </View>
                 <View style={styles.listContainer}>
                     <Text style={globalStyle.h2}>Gewicht:</Text>
@@ -111,9 +123,11 @@ const styles = StyleSheet.create({
     },
     profileImgContainer: {
         marginLeft: 8,
-        height: 80,
-        width: 80,
+        height: 160,
+        width: 160,
         borderRadius: 40,
+        justifyContent: "center",
+        alignSelf: "center"
     },
     profileImg: {
         height: 80,
