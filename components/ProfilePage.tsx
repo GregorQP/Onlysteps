@@ -11,7 +11,9 @@ export const ProfilePage = () => {
     };
 
     const [size, onChangeSize] = React.useState('cm');
-    const [name, onChangeName] = React.useState('cm');
+    const [name, onChangeName] = React.useState('name');
+    const [weight, onChangeWeight] = React.useState('weight');
+    const [age, onChangeAge] = React.useState('age');
     return (
         <View style={styles.container}>
             <View style={styles.profileImgContainer}>
@@ -21,7 +23,11 @@ export const ProfilePage = () => {
             <View >
                 <View style={styles.listContainer}>
                     <Text style={globalStyle.h2}>Name:</Text>
-                    <Text style={globalStyle.h2}>Yvo</Text>
+                    <TextInput
+                        style={globalStyle.h2}
+                        onChangeText={onChangeName}
+                        value={name}
+                    />
                 </View>
                 <View style={styles.listContainer}>
                     <Text style={globalStyle.h2}>Grösse:</Text>
@@ -34,11 +40,19 @@ export const ProfilePage = () => {
                 </View>
                 <View style={styles.listContainer}>
                     <Text style={globalStyle.h2}>Gewicht:</Text>
-                    <Text style={globalStyle.h2}>70 kg</Text>
+                    <TextInput
+                        style={globalStyle.h2}
+                        onChangeText={onChangeWeight}
+                        value={weight}
+                    />
                 </View>
                 <View style={styles.listContainer}>
                     <Text style={globalStyle.h2}>Alter:</Text>
-                    <Text style={globalStyle.h2}>24</Text>
+                    <TextInput
+                        style={globalStyle.h2}
+                        onChangeText={onChangeAge}
+                        value={age}
+                    />
                 </View>
             </View>
             <View style={styles.btnContainer}>
