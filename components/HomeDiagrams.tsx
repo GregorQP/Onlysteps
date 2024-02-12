@@ -8,75 +8,13 @@ export const HomeDiagrams = () => {
         <View>
             <View>
                 <View style={{ width: 175, alignItems: 'center' }}>
-                    <Pie
-                        radius={80}
-                        innerRadius={75}
-                        sections={[
-                            {
-                                percentage: 60,
-                                color: globalStyle.primaryPink.color,
-                            },
-                        ]}
-                        backgroundColor={globalStyle.background.backgroundColor}
-                    />
-                    <View style={styles.gauge}>
-                        <Text style={styles.gaugeText}>
+                    <View
+                        style={styles.gauge}
+                    >
+                        <Text
+                            style={styles.gaugeText}
+                        >
                             60%
-                        </Text>
-                    </View>
-                </View>
-                <View style={styles.circleContainer}>
-                <View style={{ width: 75, alignItems: 'center' }}>
-                    <Pie
-                        radius={30}
-                        innerRadius={25}
-                        sections={[
-                            {
-                                percentage: 100,
-                                color: '#f00',
-                            },
-                        ]}
-                        backgroundColor="#ddd"
-                    />
-                    <View style={styles.gauge}>
-                        <Text style={styles.gaugeText}>
-                            600
-                        </Text>
-                    </View>
-                </View>
-                <View style={{ width: 75, alignItems: 'center' }}>
-                    <Pie
-                        radius={30}
-                        innerRadius={25}
-                        sections={[
-                            {
-                                percentage: 100,
-                                color: '#f00',
-                            },
-                        ]}
-                        backgroundColor="#ddd"
-                    />
-                    <View style={styles.gauge}>
-                        <Text style={styles.gaugeText}>
-                            600
-                        </Text>
-                    </View>
-                </View>
-                <View style={{ width: 75, alignItems: 'center' }}>
-                    <Pie
-                        radius={30}
-                        innerRadius={25}
-                        sections={[
-                            {
-                                percentage: 100,
-                                color: '#f00',
-                            },
-                        ]}
-                        backgroundColor="#ddd"
-                    />
-                    <View style={styles.gauge}>
-                        <Text style={styles.gaugeText}>
-                            600
                         </Text>
                     </View>
                 </View>

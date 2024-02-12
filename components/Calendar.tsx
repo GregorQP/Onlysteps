@@ -1,74 +1,88 @@
-// import React, { useEffect } from 'react';
-// import { View, StyleSheet, Image, Text, TouchableWithoutFeedback, Platform } from 'react-native';
-// import { Calendar, CalendarAccessLevel, EntityTypes, EventStatus, createCalendarAsync, createEventAsync, getDefaultCalendarAsync, requestCalendarPermissionsAsync } from 'expo-calendar';
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
 
+export const Calendar = () => {
+    const calendarData = [
+        { day: 1, hasEvent: true },
+        { day: 2, hasEvent: false },
+        { day: 3, hasEvent: true },
+    ];
 
-// export const CalendarOverview = () => {
-//     useEffect(() => {
-//         (async () => {
-//             const { status } = await requestCalendarPermissionsAsync();
-//             if (status === 'granted') {
-//                 // const calendars = await Calendar.getCalendarsAsync(Calendar.EntityTypes.EVENT);
-//                 console.log('calender access granted');
-//                 //  console.log({ calendars });
-//             }
-//         })();
-//     }, []);
+    return (
+        <View style={styles.container}>
+            <Text style={styles.title}>Calendar</Text>
+            <View style={styles.calendarContainer}>
+                <View style={styles.weekdayHeader}>
+                    <Text style={styles.weekdayHeaderText}>Sun</Text>
+                    <Text style={styles.weekdayHeaderText}>Mon</Text>
+                    <Text style={styles.weekdayHeaderText}>Tue</Text>
+                    <Text style={styles.weekdayHeaderText}>Wed</Text>
+                    <Text style={styles.weekdayHeaderText}>Thu</Text>
+                    <Text style={styles.weekdayHeaderText}>Fri</Text>
+                    <Text style={styles.weekdayHeaderText}>Sat</Text>
+                </View>
+                {calendarData.map((item, index) => (
+                    <View style={styles.calendarCell} key={index}>
+                        <Text style={styles.calendarCellText}>{item.day}</Text>
+                        {item.hasEvent && (
+                            <MaterialIcons
+                                name="event"
+                                size={24}
+                                color="blue"
+                            />
+                        )}
+                    </View>
+                ))}
+            </View>
+        </View>
+    );
+};
 
-//     return (
+export default Calendar;
 
-//         <TouchableWithoutFeedback onPress={() => createCalendar()}>
-//             <Text>  Add To Calendar </Text>
-//         </TouchableWithoutFeedback>
-
-//     );
-// }
-
-// export default CalendarOverview;
-
-
-// const getDefaultCalendarSource = async () => {
-//     const defaultCalendar = await getDefaultCalendarAsync();
-//     return defaultCalendar.source;
-// }
-
-
-
-// const createCalendar = async () => {
-
-//     const defaultCalendarSource =
-//         Platform.OS === 'ios'
-//             ? await getDefaultCalendarSource()
-//             : { isLocalAccount: true, name: 'CalendarName' };
-//     const newCalendarID = await createCalendarAsync({
-//         title: 'CalendarName',
-//         color: 'red',
-//         timeZone: "GMT+1",
-//         status: EventStatus.CONFIRMED,
-//         entityType: EntityTypes.EVENT,
-//         sourceId: defaultCalendarSource.id,
-//         source: defaultCalendarSource,
-//         name: 'internalCalendarName',
-//         ownerAccount: 'personal',
-//         accessLevel: CalendarAccessLevel.OWNER,
-//     });
-
-//     console.log(`Your new calendar ID is: ${newCalendarID}`);
-//     alert(`Event saved in your Calendar.`);
-
-//     // creating event with calendar ID
-
-//     let getcalid = newCalendarID;
-
-//     const newevent = await createEventAsync(getcalid, {
-//         title: 'Event Name',
-//         startDate: new Date('2022-09-17T15:00:00.000Z'),
-//         endDate: new Date('2022-09-17T15:00:00.000Z'),
-//         timeZone: "GMT+1",
-//         location: 'India',
-//         alarms: [{ relativeOffset: -15 }],
-//         status: EventStatus.CONFIRMED,
-//         accessLevel: CalendarAccessLevel.OWNER,
-//     });
-
-// }
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: "bold",
+        marginBottom: 16,
+    },
+    calendarContainer: {
+        borderWidth: 1,
+        borderColor: "#ccc",
+        borderRadius: 8,
+        padding: 16,
+    },
+    weekdayHeader: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        marginBottom: 8,
+    },
+    weekdayHeaderText: {
+        fontWeight: "bold",
+        fontSize: 16,
+    },
+    calendarGrid: {
+        flexDirection: "row",
+        flexWrap: "wrap",
+        justifyContent: "center",
+    },
+    calendarCell: {
+        width: "14%",
+        aspectRatio: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        borderWidth: 1,
+        borderColor: "#ccc",
+        borderRadius: 8,
+        margin: "1%",
+    },
+    calendarCellText: {
+        fontSize: 16,
+    },
+});
