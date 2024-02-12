@@ -1,9 +1,15 @@
 import { MaterialIcons } from '@expo/vector-icons';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { globalStyle } from '../GlobalStyles';
+import { useAsyncStorage } from '@react-native-async-storage/async-storage';
 
-
+type Profile = {
+    size: string;
+    name: string;
+    weight: string;
+    age: string;
+}
 
 export const ProfilePage = () => {
 
@@ -11,11 +17,24 @@ export const ProfilePage = () => {
         Alert.alert('Placeholder', 'This is a Placeholder');
     };
 
+    const { getItem, setItem, removeItem, mergeItem } = useAsyncStorage("myProfile");
+    const [profile, setProfile] = React.useState<Profile | undefined>();
 
-    const [size, onChangeSize] = React.useState('180');
-    const [name, onChangeName] = React.useState('Yvo');
-    const [weight, onChangeWeight] = React.useState('70');
-    const [age, onChangeAge] = React.useState('24');
+    const onProfileChange = (value: string | undefined, propKey: keyof Profile) => {
+        setProfile(x => ({...x, [propKey]: value}));
+        setItem(JSON.stringify({...profile, [propKey]: value}))
+    };
+
+    useEffect(() => {
+        const profileUpdate = async () => {
+            if(profile)
+                return;
+            setProfile(JSON.parse(await getItem()));
+        };
+        profileUpdate();
+    }, [])
+    
+
     return (
         <View style={styles.container}>
             <View style={styles.profileImgContainer}>
@@ -31,16 +50,16 @@ export const ProfilePage = () => {
                     <Text style={globalStyle.h2}>Name:</Text>
                     <TextInput
                         style={globalStyle.h2}
-                        onChangeText={onChangeName}
-                        value={name}
+                        onChangeText={x => onProfileChange(x, "name")}
+                        value={profile?.name}
                     />
                 </View>
                 <View style={styles.listContainer}>
                     <Text style={globalStyle.h2}>Grösse:</Text>
                     <TextInput
                         style={globalStyle.h2}
-                        onChangeText={onChangeSize}
-                        value={size}
+                        onChangeText={x => onProfileChange(x, "size")}
+                        value={profile?.size}
                     />
 
                 </View>
@@ -48,16 +67,16 @@ export const ProfilePage = () => {
                     <Text style={globalStyle.h2}>Gewicht:</Text>
                     <TextInput
                         style={globalStyle.h2}
-                        onChangeText={onChangeWeight}
-                        value={weight}
+                        onChangeText={x => onProfileChange(x, "weight")}
+                        value={profile?.weight}
                     />
                 </View>
                 <View style={styles.listContainer}>
                     <Text style={globalStyle.h2}>Alter:</Text>
                     <TextInput
                         style={globalStyle.h2}
-                        onChangeText={onChangeAge}
-                        value={age}
+                        onChangeText={x => onProfileChange(x, "age")}
+                        value={profile?.age}
                     />
                 </View>
             </View>

@@ -8,6 +8,8 @@ import { AbstractChartConfig } from 'react-native-chart-kit/dist/AbstractChart';
 export const HomeDiagrams = () => {
     const [pastStepCount, setPastStepCount] = useState([0]);
     const [currentStepCount, setCurrentStepCount] = useState(0);
+
+    const { width, height } = Dimensions.get('window');
  
     const subscribe = async () => {
         const stepCounts = [];
@@ -35,8 +37,7 @@ export const HomeDiagrams = () => {
  
         fetchSubscription();
     }, []);
- 
-    const { width, height } = Dimensions.get('window');
+    
     return (
         <View style={styles.container}>
             <ProgressChart
