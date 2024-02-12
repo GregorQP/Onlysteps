@@ -1,14 +1,14 @@
 import { MaterialIcons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { globalStyle } from '../GlobalStyles';
 
 export const AppLayout = () => {
     return (
         <Tabs>
             <Tabs.Screen name='index' options={{
-                title: "Home",
+                title: "Hallo Yvo",
                 tabBarIcon: () => (
                     <MaterialIcons
                         name="home"
@@ -19,10 +19,11 @@ export const AppLayout = () => {
                 tabBarBackground: () => (
                     <View style={{backgroundColor: globalStyle.background.backgroundColor, height: "100%"}}></View>
                 ),
-                tabBarActiveTintColor: globalStyle.primaryPink.color
+                tabBarActiveTintColor: globalStyle.primaryPink.color,
+
             }}/>
             <Tabs.Screen name='Overview' options={{
-                title: "Overview",
+                title: "Übersicht",
                 tabBarIcon: () => (
                     <MaterialIcons
                         name="event"
@@ -36,7 +37,7 @@ export const AppLayout = () => {
                 tabBarActiveTintColor: globalStyle.primaryPink.color
             }}/>
             <Tabs.Screen name='Settings' options={{
-                title: "Settings",
+                title: "Profil",
                 tabBarIcon: () => (
                     <MaterialIcons
                         name="account-circle"
