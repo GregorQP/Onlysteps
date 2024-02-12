@@ -27,7 +27,7 @@ export const ProfilePage = () => {
             <View style={styles.profileImgContainer}>
             <MaterialIcons
                         name="account-circle"
-                        size={40}
+                        size={160}
                         color={globalStyle.secondaryPurple.color}
                     />
                 <Text style={globalStyle.h4}></Text>
@@ -123,9 +123,11 @@ const styles = StyleSheet.create({
     },
     profileImgContainer: {
         marginLeft: 8,
-        height: 80,
-        width: 80,
+        height: 160,
+        width: 160,
         borderRadius: 40,
+        justifyContent: "center",
+        alignSelf: "center"
     },
     profileImg: {
         height: 80,
