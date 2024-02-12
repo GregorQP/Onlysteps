@@ -1,6 +1,7 @@
 import { Dimensions, StyleSheet } from 'react-native';
 
 const { width } = Dimensions.get('window')
+const { height } = Dimensions.get('window')
 
 export const globalStyle =  StyleSheet.create({
     h1:{
@@ -26,8 +27,8 @@ export const globalStyle =  StyleSheet.create({
     },
     background:{
         backgroundColor: "#080726",
-        width: 100,
-        height: 100
+        width: width,
+        height: width/9*16
     },
     primaryPink:{
         color: "#BE63BF"

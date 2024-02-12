@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image } from 'react-bootstrap';
-import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, Dimensions, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { globalStyle } from '../GlobalStyles';
 import { MaterialIcons } from '@expo/vector-icons';
 
@@ -35,27 +35,27 @@ export const ProfilePage = () => {
                 </View>
             </View>
             <View style={styles.btnContainer}>
-                <TouchableOpacity onPress={onPressButton}>
+                <TouchableOpacity style={styles.button} onPress={onPressButton}>
                     <MaterialIcons
                         name="sports-score"
-                        size={24}
-                        color="black"
+                        size={32}
+                        color= {globalStyle.primaryPink.color}
                     />
                     <Text style={globalStyle.h2}>Meine Ziele</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={onPressButton}>
+                <TouchableOpacity style={styles.button} onPress={onPressButton}>
                     <MaterialIcons
                         name="watch"
-                        size={24}
-                        color="black"
+                        size={32}
+                        color={globalStyle.primaryPink.color}
                     />
                     <Text style={globalStyle.h2}>Tracker Verbinden</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={onPressButton}>
+                <TouchableOpacity style={styles.button} onPress={onPressButton}>
                     <MaterialIcons
                         name="assessment"
-                        size={24}
-                        color="black"
+                        size={32}
+                        color={globalStyle.primaryPink.color}
                     />
                     <Text style={globalStyle.h2}>Datenschutzrichtlinie</Text>
                 </TouchableOpacity>
@@ -78,8 +78,10 @@ export default ProfilePage;
 
 const styles = StyleSheet.create({
     container: {
+        //height: Dimensions.get("window").height -100,
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        backgroundColor: globalStyle.background.backgroundColor
     },
     profileImgContainer: {
         marginLeft: 8,
@@ -113,5 +115,6 @@ const styles = StyleSheet.create({
         padding: 8,
         margin: 8,
         borderColor: globalStyle.textColor.color,
+        flexDirection: 'row',
       }
 })
