@@ -18,12 +18,10 @@ export const HomeDiagrams = () => {
                         </Text>
                     </View>
                 </View>
-                </View>
             </View>
-
         </View>
-    )
-}
+    );
+};
 
 export default HomeDiagrams;
 
