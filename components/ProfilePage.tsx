@@ -1,13 +1,19 @@
 import React from 'react';
 import { Image } from 'react-bootstrap';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { globalStyle } from '../GlobalStyles';
+import { MaterialIcons } from '@expo/vector-icons';
 
 export const ProfilePage = () => {
+
+    const onPressButton = () => {
+        Alert.alert('Placeholder', 'This is a Placeholder');
+    };
+
     return (
         <View style={styles.container}>
             <View style={styles.profileImgContainer}>
-                <Image src='./pictures/cat.jpg' style={styles.profileImg}></Image>
+                {/* <Image src='./assets/cat.jpg' style={styles.profileImg}/> */}
                 <Text style={globalStyle.h4}></Text>
             </View>
             <View style={styles.container}>
@@ -29,19 +35,38 @@ export const ProfilePage = () => {
                 </View>
             </View>
             <View style={styles.btnContainer}>
-                <TouchableOpacity >
-                <Text style={globalStyle.h2}>Meine Ziele</Text>
+                <TouchableOpacity onPress={onPressButton}>
+                    <MaterialIcons
+                        name="sports-score"
+                        size={24}
+                        color="black"
+                    />
+                    <Text style={globalStyle.h2}>Meine Ziele</Text>
                 </TouchableOpacity>
-                <TouchableOpacity >
-                <Text style={globalStyle.h2}>Tracker Verbinden</Text>
+                <TouchableOpacity onPress={onPressButton}>
+                    <MaterialIcons
+                        name="watch"
+                        size={24}
+                        color="black"
+                    />
+                    <Text style={globalStyle.h2}>Tracker Verbinden</Text>
                 </TouchableOpacity>
-                <TouchableOpacity >
-                <Text style={globalStyle.h2}>Datenschutzrichtlinie</Text>
+                <TouchableOpacity onPress={onPressButton}>
+                    <MaterialIcons
+                        name="assessment"
+                        size={24}
+                        color="black"
+                    />
+                    <Text style={globalStyle.h2}>Datenschutzrichtlinie</Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.listContainer}>
-                <Text style={globalStyle.h4}>Abmelden</Text>
-                <Text style={globalStyle.h4}>Konto Löschen</Text>
+                <TouchableOpacity onPress={onPressButton}> 
+                    <Text style={globalStyle.h4}>Abmelden</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={onPressButton}> 
+                    <Text style={globalStyle.h4}>Konto Löschen</Text>
+                </TouchableOpacity>
             </View>
 
 

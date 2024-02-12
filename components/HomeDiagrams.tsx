@@ -9,17 +9,6 @@ export const HomeDiagrams = () => {
         <View>
             <View>
                 <View style={{ width: 175, alignItems: 'center' }}>
-                    <Pie
-                        radius={80}
-                        innerRadius={75}
-                        sections={[
-                            {
-                                percentage: 60,
-                                color: '#f00',
-                            },
-                        ]}
-                        backgroundColor="#ddd"
-                    />
                     <View
                         style={styles.gauge}
                     >
