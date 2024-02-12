@@ -3,16 +3,17 @@ import { StyleSheet, Text, View } from "react-native";
 import CalendarCell from "./CalendarCell";
 import { globalStyle } from "../GlobalStyles";
 
-function BooleanCount({ booleanArray }) {
+const countTrue = () => {
     // Initialisiere den Zähler auf 0
     let trueCount = 0;
 
     // Durchlaufe das Array und erhöhe den Zähler, wenn das Element true ist
-    for (let i = 0; i < booleanArray.length; i++) {
-        if (booleanArray[i] === true) {
+    for (let i = 0; i < calendarData.length; i++) {
+        if (calendarData[i].hasEvent === true) {
             trueCount++;
         }
     }
+    return trueCount;
 }
 export const Calendar = () => {
 
@@ -33,12 +34,10 @@ export const Calendar = () => {
                     {calendarData.map((x, i) => (<CalendarCell item={x} key={i} />))}
                 </View>
             </View>
-            {BooleanCount(calendarData) > 16
-                            ? <LogoutButton onClick={this.handleLogoutClick} />
-                : <LoginButton onClick={this.handleLoginClick} />
-            }
-            <Text style={styles.title}>Da geht noch was!</Text>
-            <Text style={styles.subText}>Du hast an 21/31 Tagen dein Ziel erreicht. Diesen Monat schaffst du mehr!</Text>
+
+            
+            <Text style={styles.title}>{countTrue() <= 15 ? "Da geht noch was!" : "Super!"}</Text>
+            <Text style={styles.subText}>{`Du hast an ${countTrue()}/31 Tagen dein Ziel erreicht.`}</Text>
         </View>
     );
 };
