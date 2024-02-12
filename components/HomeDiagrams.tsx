@@ -3,6 +3,7 @@ import { Dimensions, StyleSheet, View, Text } from 'react-native';
 import { BarChart, ProgressChart } from 'react-native-chart-kit';
 import { globalStyle } from '../GlobalStyles';
 import { Pedometer } from 'expo-sensors';
+import { AbstractChartConfig } from 'react-native-chart-kit/dist/AbstractChart';
  
 export const HomeDiagrams = () => {
     const [pastStepCount, setPastStepCount] = useState([0]);
@@ -19,7 +20,7 @@ export const HomeDiagrams = () => {
             endOfDay.setDate(startOfWeek.getDate() + i); // Add i days to startOfWeek to get the end of each day
  
             const stepCountResult = await Pedometer.getStepCountAsync(startOfWeek, endOfDay);
-            stepCounts.push(stepCountResult ? stepCountResult.steps / 10000 : 0);
+            stepCounts.push(stepCountResult ? stepCountResult.steps : 0);
         }
         if (stepCounts.length > 0)
             setPastStepCount(stepCounts);
@@ -35,13 +36,13 @@ export const HomeDiagrams = () => {
         fetchSubscription();
     }, []);
  
-    const { width } = Dimensions.get('window');
+    const { width, height } = Dimensions.get('window');
     return (
         <View style={styles.container}>
             <ProgressChart
                 data={[currentStepCount / 10000]}
                 width={width}
-                height={220}
+                height={height / 5}
                 strokeWidth={16}
                 radius={64}
                 chartConfig={chartConfig}
@@ -53,7 +54,7 @@ export const HomeDiagrams = () => {
                 <ProgressChart
                     data={[0]}
                     width={width / 3}
-                    height={220}
+                    height={height / 8}
                     strokeWidth={8}
                     radius={16}
                     chartConfig={chartConfig}
@@ -62,7 +63,7 @@ export const HomeDiagrams = () => {
                 <ProgressChart
                     data={[0]}
                     width={width / 3}
-                    height={220}
+                    height={height / 8}
                     strokeWidth={8}
                     radius={16}
                     chartConfig={chartConfig}
@@ -71,7 +72,7 @@ export const HomeDiagrams = () => {
                 <ProgressChart
                     data={[0]}
                     width={width / 3}
-                    height={220}
+                    height={height / 8}
                     strokeWidth={8}
                     radius={16}
                     chartConfig={chartConfig}
@@ -79,9 +80,9 @@ export const HomeDiagrams = () => {
                 />
             </View>
             <BarChart
-                data={{labels: ["MO", "DI", "MI", "DO", "FR", "SA", "SO"], datasets: [{data: pastStepCount}]}}
+                data={{ labels: ["MO", "DI", "MI", "DO", "FR", "SA", "SO"], datasets: [{data: pastStepCount}]}}
                 width={width}
-                height={100}
+                height={height / 5}
                 yAxisLabel=""
                 yAxisSuffix=""
                 withInnerLines={false}
@@ -107,14 +108,10 @@ const styles = StyleSheet.create({
     }
 });
  
-const chartConfig = {
-    backgroundGradientFrom: "#1E2923",
+const chartConfig: AbstractChartConfig = {
     backgroundGradientFromOpacity: 0,
-    backgroundGradientTo: "#08130D",
     backgroundGradientToOpacity: 0,
-    color: (opacity = 1) => globalStyle.primaryPink.color,
-    labelColor: () => globalStyle.textColor.color,
-    strokeWidth: 2, // optional, default 3
+    color: (opacity = 1) => `rgba(190, 99, 191, ${opacity})`,
+    labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
     barPercentage: 0.5,
-    useShadowColorFromDataset: false // optional
   };
