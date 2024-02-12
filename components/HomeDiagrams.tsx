@@ -1,9 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Pie from 'react-native-pie';
+import { globalStyle } from '../GlobalStyles';
 
-const left = 40;
-const done = 60;
 export const HomeDiagrams = () => {
     return (
         <View>
@@ -15,20 +14,72 @@ export const HomeDiagrams = () => {
                         sections={[
                             {
                                 percentage: 60,
+                                color: globalStyle.primaryPink.color,
+                            },
+                        ]}
+                        backgroundColor={globalStyle.background.backgroundColor}
+                    />
+                    <View style={styles.gauge}>
+                        <Text style={styles.gaugeText}>
+                            60%
+                        </Text>
+                    </View>
+                </View>
+                <View style={styles.circleContainer}>
+                <View style={{ width: 75, alignItems: 'center' }}>
+                    <Pie
+                        radius={30}
+                        innerRadius={25}
+                        sections={[
+                            {
+                                percentage: 100,
                                 color: '#f00',
                             },
                         ]}
                         backgroundColor="#ddd"
                     />
-                    <View
-                        style={styles.gauge}
-                    >
-                        <Text
-                            style={styles.gaugeText}
-                        >
-                            60%
+                    <View style={styles.gauge}>
+                        <Text style={styles.gaugeText}>
+                            600
                         </Text>
                     </View>
+                </View>
+                <View style={{ width: 75, alignItems: 'center' }}>
+                    <Pie
+                        radius={30}
+                        innerRadius={25}
+                        sections={[
+                            {
+                                percentage: 100,
+                                color: '#f00',
+                            },
+                        ]}
+                        backgroundColor="#ddd"
+                    />
+                    <View style={styles.gauge}>
+                        <Text style={styles.gaugeText}>
+                            600
+                        </Text>
+                    </View>
+                </View>
+                <View style={{ width: 75, alignItems: 'center' }}>
+                    <Pie
+                        radius={30}
+                        innerRadius={25}
+                        sections={[
+                            {
+                                percentage: 100,
+                                color: '#f00',
+                            },
+                        ]}
+                        backgroundColor="#ddd"
+                    />
+                    <View style={styles.gauge}>
+                        <Text style={styles.gaugeText}>
+                            600
+                        </Text>
+                    </View>
+                </View>
                 </View>
             </View>
 
@@ -52,5 +103,11 @@ const styles = StyleSheet.create({
         color: '#000',
         fontSize: 24,
     },
+    circleContainer:{
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        
+      },
 })
 
