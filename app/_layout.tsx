@@ -1,8 +1,8 @@
+import { MaterialIcons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { MaterialIcons } from '@expo/vector-icons';
+import { View } from 'react-native';
 import { globalStyle } from '../GlobalStyles';
-import { Text, View } from 'react-native';
 
 export const AppLayout = () => {
     return (
@@ -19,7 +19,7 @@ export const AppLayout = () => {
                 tabBarBackground: () => (
                     <View style={{backgroundColor: globalStyle.background.backgroundColor, height: "100%"}}></View>
                 ),
-                // tabBarActiveTintColor: globalStyle.primaryPink.color
+                tabBarActiveTintColor: globalStyle.primaryPink.color
             }}/>
             <Tabs.Screen name='Overview' options={{
                 title: "Overview",
