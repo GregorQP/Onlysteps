@@ -1,7 +1,5 @@
-import { IconCalendar, IconHome, IconUser } from '@tabler/icons';
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { Text } from 'react-native';
 
 export const AppLayout = () => {
     return (
@@ -9,19 +7,19 @@ export const AppLayout = () => {
             <Tabs.Screen name='index' options={{
                 title: "Home",
                 tabBarIcon: () => (
-                    <Text><IconHome/></Text>
+                    <></>
                 ),
             }}/>
             <Tabs.Screen name='Overview' options={{
                 title: "Overview",
                 tabBarIcon: () => (
-                    <Text><IconCalendar/></Text>
+                    <></>
                 ),
             }}/>
             <Tabs.Screen name='Settings' options={{
                 title: "Settings",
                 tabBarIcon: () => (
-                    <Text><IconUser/></Text>
+                    <></>
                 ),
             }}/>
         </Tabs>

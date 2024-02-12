@@ -1,10 +1,11 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import HomeDiagrams from '../components/HomeDiagrams';
 
 export const Overview = () => {
     return (
         <View>
-            <Text>Overview</Text>
+            <HomeDiagrams/>
         </View>
     );
 };

@@ -1,18 +1,16 @@
 import { Pedometer } from 'expo-sensors';
 import React, { useEffect, useState } from 'react';
-import { HomeDiagrams } from '../components/HomeDiagrams';
+import { View } from 'react-native';
 import ProfilePage from "../components/ProfilePage";
-import { Text, View } from 'react-native';
-import GlobalStyles from '../components/GlobalStyles'
 
 export const Home = () => {
     const [isPedometerAvailable, setIsPedometerAvailable] = useState('checking');
-    //const [pastStepCount, setPastStepCount] = useState(0);
+    const [pastStepCount, setPastStepCount] = useState(0);
     const [currentStepCount, setCurrentStepCount] = useState(0);
 
     const subscribe = async () => {
-         const isAvailable = await Pedometer.isAvailableAsync();
-         /*setIsPedometerAvailable(String(isAvailable));
+        const isAvailable = await Pedometer.isAvailableAsync();
+        setIsPedometerAvailable(String(isAvailable));
      
            if (isAvailable) {
                const end = new Date();
@@ -23,7 +21,7 @@ export const Home = () => {
                if (pastStepCountResult)
                    setPastStepCount(pastStepCountResult.steps);
        
-               }*/
+               }
         return Pedometer.watchStepCount(result => setCurrentStepCount(result.steps));
     };
 
@@ -37,9 +35,9 @@ export const Home = () => {
     }, []);
 
     return (
-            <View>
-                <ProfilePage/>
-            </View>
+        <View>
+            <ProfilePage/>
+        </View>
         /*<View style={GlobalStyles.backgroundColor}>
             <Text style={GlobalStyles.textColor}>Pedometer.isAvailableAsync(): {isPedometerAvailable}</Text>
             <Text style={GlobalStyles.textColor}>Walk! And watch this go up: {currentStepCount}</Text>
