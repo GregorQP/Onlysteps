@@ -30,13 +30,13 @@ export const ProfilePage = () => {
             </View>
             <View style={styles.btnContainer}>
                 <TouchableOpacity >
-                <Text style={globalStyle.h2}>Meine Ziele</Text>
+                <Text style={styles.button}>Meine Ziele</Text>
                 </TouchableOpacity>
                 <TouchableOpacity >
-                <Text style={globalStyle.h2}>Tracker Verbinden</Text>
+                <Text style={styles.button}>Tracker Verbinden</Text>
                 </TouchableOpacity>
                 <TouchableOpacity >
-                <Text style={globalStyle.h2}>Datenschutzrichtlinie</Text>
+                <Text style={styles.button}>Datenschutzrichtlinie</Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.listContainer}>
@@ -70,10 +70,23 @@ const styles = StyleSheet.create({
       listContainer:{
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        paddingLeft: 50,
+        paddingRight: 50
       },
       btnContainer:{
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'column',
+        padding: 30
+      },
+      button:{
+        backgroundColor: globalStyle.secondaryPurple.color,
+        fontFamily: globalStyle.h2.fontFamily,
+        fontSize: globalStyle.h2.fontSize,
+        color: globalStyle.textColor.color,
+        borderRadius: 10,
+        padding: 8,
+        margin: 8,
+        borderColor: globalStyle.textColor.color,
       }
 })

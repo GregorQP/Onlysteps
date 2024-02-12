@@ -6,19 +6,23 @@ export const globalStyle =  StyleSheet.create({
     h1:{
         fontFamily: "Roboto",
         fontSize: width/14,
-        fontWeight: "bold"
+        fontWeight: "bold",
+        color: "#FFFFFF"
     },
     h2:{
         fontFamily: "Roboto",
         fontSize: width/18,
+        color: "#FFFFFF"
     },
     h3:{
         fontFamily: "Roboto",
         fontSize: width/27,
+        color: "#FFFFFF"
     },
     h4:{
         fontFamily: "Roboto",
         fontSize: width/31,
+        color: "#FFFFFF"
     },
     background:{
         backgroundColor: "#080726",
