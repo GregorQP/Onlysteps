@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Dimensions, StyleSheet, View, Text } from 'react-native';
 import { BarChart, ProgressChart } from 'react-native-chart-kit';
 import { globalStyle } from '../GlobalStyles';

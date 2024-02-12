@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
+import { globalStyle } from "../GlobalStyles";
 
 type Props = {
     item: {
@@ -37,5 +38,6 @@ const styles = StyleSheet.create({
     },
     calendarCellText: {
         fontSize: 16,
+        color: globalStyle.textColor.color,
     },
 });
